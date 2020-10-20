@@ -1,0 +1,137 @@
+<?php $view->extend('layout.phtml') ?>
+<?php $view['slots']->set('section', 'home') ?>
+<?php $view['slots']->start('styles') ?>
+<?php $view['slots']->stop() ?>
+
+<?php $view['slots']->start('social') ?>
+<ul class="social-list">
+    <li title="Facebook">
+        <a href="http://www.facebook.com/sharer.php?u=<?php echo $view->escape('http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] . '?cid=SMBOSO22801&s_kw=BC-facebook', 'url') ?>" target="_blank" rel="nofollow" onclick="gtag('event', 'Social', {'event_category': 'Facebook'});envioEventoRedSocial('facebook');" title="Compártelo en Facebook" class="icon-facebook" itemprop="sameAs">
+        </a>
+    </li>
+    <li title="Twitter">
+        <a href="https://twitter.com/intent/tweet?url=<?php echo $view->escape('http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] . '?cid=SMBOSO22801&s_kw=BC-twitter', 'url') ?>&amp;text=<?php echo $view->escape($GLOBALS['config']['rrss']['home']['twitter'], 'url') ?>" target="_blank" rel="nofollow" onclick="gtag('event', 'Social', {'event_category': 'Twitter'});envioEventoRedSocial('twitter');" title="Compártelo en Twitter" itemprop="sameAs" class="icon-twitter">
+        </a>
+    </li>
+</ul>
+<?php $view['slots']->stop() ?>
+
+<div class="ue-l-cover-grid ">
+    <div class="ue-l-cover-grid__inner">
+        <div class="ue-l-cover-grid__intro" itemprop="text">
+            <p>La revolución femenina ha llegado a todos los niveles del mundo empresarial, desde mujeres que ocupan importantes puestos directivos a emprendedoras cuyos inicios no fueron fáciles. En este contexto, Banco Santander te trae conversaciones inspiradoras donde 28 mujeres debaten sobre temas de actualidad, con el fin de dar visibilidad al talento femenino, impulsar la igualdad de oportunidades y contribuir al progreso de una sociedad responsable.</p>
+        </div>
+
+        <div class="ue-l-cover-grid__body">
+            <div class="ue-l-cover-grid__block">
+                <div class="ue-l-cover-grid__row">
+                    <div class="ue-l-cover-grid__column  size9of12 ">
+                        <div class="ue-l-cover-grid__unit">
+                            <article class="ue-c-cover-content ue-c-cover-content--xl-from-mobile ue-c-cover-content--s-from-tablet ue-c-cover-content--xl-from-desktop ue-c-cover-content--media-icon-m-from-mobile ue-c-cover-content--media-icon-l-from-desktop ue-c-cover-content--vertical-from-mobile ue-c-cover-content--media2of3-from-tablet ue-c-cover-content--media-right-from-tablet ue-c-cover-content--footer1of3-from-desktop ue-c-cover-content--footer-left-from-desktop ue-c-cover-content--link-grow-300-from-desktop has-image  has-byline ">
+                                <div class="ue-c-cover-content__body">
+                                    <div class="ue-c-cover-content__media">
+                                        <figure class="ue-c-cover-content__figure">
+                                            <img src="<?php echo $GLOBALS['config']['cdn_url'] ?>/images/<?php echo $view->escape($videos[0]->vertical, 'path') ?>" class="ue-c-cover-content__image" alt="<?php echo $view->escape($videos[0]->title_txt) ?>" />
+                                        </figure>
+                                    </div>
+                                    <div class="ue-c-cover-content__main">
+                                        <header class="ue-c-cover-content__headline-group">
+                                            <span class="ue-c-cover-content__kicker"><?php echo $view->escape($videos[0]->tags[0]->name) ?></span>
+                                            <a class="ue-c-cover-content__link" href="<?php echo $view->escape($videos[0]->url, 'path') ?>">
+                                                <h2 class="ue-c-cover-content__headline"><?php echo $view->escape($videos[0]->title_txt) ?></h2>
+                                            </a>
+                                        </header>
+                                        <meta content="<?php echo $view->escape($videos[0]->date_zulu) ?>" />
+                                        <time class="mod-date n-visible" datetime="<?php echo $view->escape($videos[0]->date_zulu) ?>"></time>
+                                        <p class="ue-c-cover-content__standfirst"><?php echo $view->escape($videos[0]->subtitle) ?></p>
+                                        <div class="ue-c-cover-content__list-inline">
+                                            <ul class="ue-c-cover-content__byline-list">
+                                                <li class="ue-c-cover-content__byline-item">
+                                                    <span class="ue-c-cover-content__byline-name">
+                                                        <?php echo $view->escape($videos[0]->author_name) ?>
+                                                    </span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                    <div class="ue-l-cover-grid__column  size3of12 ">
+                        <div class="ue-l-cover-grid__unit">
+                            <article class="ue-c-cover-content ue-c-cover-content--s-from-mobile ue-c-cover-content--xs-from-tablet ue-c-cover-content--m-from-desktop ue-c-cover-content--media-icon-m-from-tablet ue-c-cover-content--vertical-from-tablet has-image  has-byline has-comments ">
+                                <div class="ue-c-cover-content__body">
+                                    <div class="ue-c-cover-content__media">
+                                        <figure class="ue-c-cover-content__figure">
+                                            <img src="<?php echo $GLOBALS['config']['cdn_url'] ?>/images/<?php echo $view->escape($videos[1]->image_720, 'path') ?>" class="ue-c-cover-content__image" alt="<?php echo $view->escape($videos[1]->title_txt) ?>" />
+                                        </figure>
+                                    </div>
+                                    <div class="ue-c-cover-content__main">
+                                        <header class="ue-c-cover-content__headline-group">
+                                            <span class="ue-c-cover-content__kicker"><?php echo $view->escape($videos[1]->tags[0]->name) ?></span>
+                                            <a class="ue-c-cover-content__link" href="<?php echo $view->escape($videos[1]->url, 'path') ?>">
+                                                <h2 class="ue-c-cover-content__headline"><?php echo $view->escape($videos[1]->title_txt) ?></h2>
+                                            </a>
+                                        </header>
+                                        <meta content="<?php echo $view->escape($videos[1]->date_zulu) ?>" />
+                                        <time class="mod-date n-visible" datetime="<?php echo $view->escape($videos[1]->date_zulu) ?>"></time>
+                                        <p class="ue-c-cover-content__standfirst"><?php echo $view->escape($videos[1]->subtitle) ?></p>
+                                        <div class="ue-c-cover-content__list-inline">
+                                            <ul class="ue-c-cover-content__byline-list">
+                                                <li class="ue-c-cover-content__byline-item">
+                                                    <span class="ue-c-cover-content__byline-name">
+                                                        <?php echo $view->escape($videos[1]->author_name) ?>
+                                                    </span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ue-l-cover-grid__block">
+                <div class="ue-l-cover-grid__row ">
+                    <?php foreach (array_slice($videos, 2) as $video) : ?>
+                    <div class="ue-l-cover-grid__unit size4of12 ">
+                        <article class="ue-c-cover-content ue-c-cover-content--s-from-mobile ue-c-cover-content--m-from-tablet ue-c-cover-content--l-from-desktop ue-c-cover-content--vertical-from-tablet ue-c-cover-content--media-icon-m-from-tablet has-image  has-byline ">
+                            <div class="ue-c-cover-content__body">
+                                <div class="ue-c-cover-content__media">
+                                    <figure class="ue-c-cover-content__figure">
+                                        <img src="<?php echo $GLOBALS['config']['cdn_url'] ?>/images/<?php echo $view->escape($video->image_720, 'path') ?>" class="ue-c-cover-content__image" alt="<?php echo $view->escape($video->title_txt) ?>" />
+                                    </figure>
+                                </div>
+                                <div class="ue-c-cover-content__main">
+                                    <header class="ue-c-cover-content__headline-group">
+                                        <span class="ue-c-cover-content__kicker"><?php echo $view->escape($video->tags[0]->name) ?></span>
+                                        <a class="ue-c-cover-content__link" href="<?php echo $view->escape($video->url, 'path') ?>">
+                                            <h2 class="ue-c-cover-content__headline"><?php echo $view->escape($video->title_txt) ?></h2>
+                                        </a>
+                                    </header>
+                                    <meta content="<?php echo $view->escape($video->date_zulu) ?>" />
+                                    <time class="mod-date n-visible" datetime="<?php echo $view->escape($video->date_zulu) ?>"></time>
+                                    <div class="ue-c-cover-content__list-inline">
+                                        <ul class="ue-c-cover-content__byline-list">
+                                            <li class="ue-c-cover-content__byline-item">
+                                                <span class="ue-c-cover-content__byline-name">
+                                                    <?php echo $view->escape($video->author_name) ?>
+                                                </span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <?php endforeach ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<?php $view['slots']->start('scripts') ?>
+<?php $view['slots']->stop() ?> 

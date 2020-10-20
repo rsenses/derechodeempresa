@@ -1,0 +1,20 @@
+{
+    "require": {
+        "j4mie/idiorm": "1.5.*",
+        "mikecao/flight": "^1.2",
+        "symfony/templating": "^2.8"
+    },
+    "autoload": {
+        "files": [
+            "src/config.php",
+            "src/env.php"
+        ],
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "require-dev": {
+        "vimeo/psalm": "^2.0",
+        "larapack/dd": "^1.1"
+    }
+}

@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="es" class="no-js" itemscope itemtype="http://schema.org/Webpage">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="UEStudio">
+    <meta name="referrer" content="unsafe-url">
+
+    <!-- Place this data between the <head> tags of your website -->
+    <title><?php $view['slots']->output('title', $GLOBALS['config']['web_name']) ?> | El Mundo, Marca</title>
+    <meta name="description" content="<?php $view['slots']->output('description', $GLOBALS['config']['rrss']['home']['facebook']) ?>">
+    <meta name="author" content="<?php echo $GLOBALS['config']['owner_name'] ?>">
+
+    <!-- Schema.org markup (Google) -->
+    <meta itemprop="name" content="<?php $view['slots']->output('title', $GLOBALS['config']['web_name']) ?>">
+    <meta itemprop="description" content="<?php $view['slots']->output('description', $GLOBALS['config']['rrss']['home']['facebook']) ?>">
+    <meta itemprop="image" content="<?php $view['slots']->output('socialImage', 'http://derechodeempresa.expansion.com/assets/img/rrss.jpg') ?>">
+
+    <!-- Twitter Card markup-->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@uestudio_es">
+    <meta name="twitter:title" content="<?php $view['slots']->output('title', $GLOBALS['config']['web_name']) ?>">
+    <meta name="twitter:description" content="<?php $view['slots']->output('facebook', $GLOBALS['config']['rrss']['home']['facebook']) ?>">
+    <meta name="twitter:creator" content="@uestudio_es">
+    <!-- Twitter summary card with large image must be at least 280x150px -->
+    <meta name="twitter:image" content="<?php $view['slots']->output('socialImage', 'http://derechodeempresa.expansion.com/assets/img/rrss.jpg') ?>">
+    <meta name="twitter:image:alt" content="<?php $view['slots']->output('title', $GLOBALS['config']['web_name']) ?>">
+
+    <!-- Open Graph markup (Facebook, Pinterest) -->
+    <meta property="og:title" content="<?php $view['slots']->output('title', $GLOBALS['config']['web_name']) ?>" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="<?php echo 'https://' . $_SERVER['HTTP_HOST'] . $uri ?>" />
+    <meta property="og:image" content="<?php $view['slots']->output('socialImage', 'http://derechodeempresa.expansion.com/assets/img/rrss.jpg') ?>" />
+    <meta property="og:description" content="<?php $view['slots']->output('facebook', $GLOBALS['config']['rrss']['home']['facebook']) ?>" />
+    <meta property="og:site_name" content="<?php echo $GLOBALS['config']['web_name'] ?>" />
+
+    <link rel="canonical" href="<?php echo 'https://' . $_SERVER['HTTP_HOST'] . $uri ?>">
+
+    <?php $view['slots']->output('trust') ?>
+
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+    <link href="/assets/css/main.css?v8" rel="stylesheet" type="text/css">
+    <link href="/assets/css/expansion.css?v9" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="https://e00-elmundo.uecdn.es/assets/cover/elmundo/v0/main-cover.9c1f83d95f46c82b1674.css">
+    <link rel="stylesheet" type="text/css" href="https://e00-elmundo.uecdn.es/assets/v11/css/ue-c-core-elmundo-desktop.css">
+
+    <?php $view['slots']->output('styles') ?>
+
+    <!--[if lt IE 9]>
+            <script src="http://estaticos.elmundo.es/em/js/html5.js"></script>
+        <![endif]-->
+    <!--[if (gte IE 7)&(lte IE 8)]>
+        <meta http-equiv="X-UA-Compatible" content="IE=100">
+        <![endif]-->
+
+    <!-- Analítica -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-64259892-81"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    
+    gtag('config', 'UA-64259892-81');
+    </script>
+
+
+    <?php if ($domain === 'marca.com') : ?>
+    <script src="//e00-apps-ue.uecdn.es/tms/js/tms-marca.js"></script>
+    <?php elseif ($domain === 'expansion.com') : ?>
+    <script src="//e00-apps-ue.uecdn.es/tms/js/tms-expansion.js"></script>
+    <?php elseif ($domain === 'telva.com') : ?>
+    <script src="//e00-apps-ue.uecdn.es/tms/js/tms-telva.js"></script>
+    <?php else : ?>
+    <script src="//e00-apps-ue.uecdn.es/tms/js/tms-mundo.js"></script>
+    <?php endif ?>
+</head>
+
+<body class="<?php echo $domainName ?> <?php $view['slots']->output('section') ?>">
+    <header class="site-header js-cnav-header main-section-header section-header inside" data-ue-model="">
+        <!--cabecera EM-->
+        <div class="container-header">
+            <div class="site-logo">
+                <div class="logo">
+                    <a href="https://www.elmundo.es"><span class="hidden-content">El Mundo</span></a>
+                </div>
+                <aside class="tools-header">
+                    <ul class="tools-header-corporative">
+                        <li class="tools-corporative-subscription"> <a href="https://clk.tradedoubler.com/click?p=271574&amp;a=2404199&amp;g=23242684" title="Suscripciones El Mundo" class="tools-corporative-link">Suscríbete</a>
+                        </li>
+                    </ul>
+                </aside>
+            </div>
+        </div>
+        <div class="nav-container js-desdefixed js-hastafixed">
+            <div class="container-header">
+                <nav role="navigation" class="js-navTab">
+                    <ul class="nav-tabs js-mainNavigation">
+                        <li class="tab tab-national" data-section="espana"> <a href="https://www.elmundo.es/espana.html?intcmp=MENUHOM24801&amp;s_kw=espana" data-menu-active="espana">España</a>
+                        </li>
+                        <li class="tab tab-opinion" data-section="opinion"> <a href="https://www.elmundo.es/opinion.html?intcmp=MENUHOM24801&amp;s_kw=opinion" data-menu-active="opinion">Opinión</a>
+                        </li>
+                        <li class="tab tab-economics" data-section="economia"> <a href="https://www.elmundo.es/economia.html?intcmp=MENUHOM24801&amp;s_kw=economia" data-menu-active="economia">Economía</a>
+                        </li>
+                        <li class="tab tab-world" data-section="internacional"> <a href="https://www.elmundo.es/internacional.html?intcmp=MENUHOM24801&amp;s_kw=internacional" data-menu-active="internacional">Internacional</a>
+                        </li>
+                        <li class="tab tab-sports" data-section="deportes"> <a href="https://www.elmundo.es/deportes.html?intcmp=MENUHOM24801&amp;s_kw=deportes" data-menu-active="deportes">Deportes</a>
+                        </li>
+                        <li class="tab tab-culture" data-section="cultura"> <a href="https://www.elmundo.es/cultura.html?intcmp=MENUHOM24801&amp;s_kw=cultura" data-menu-active="cultura">Cultura</a>
+                        </li>
+                        <li class="tab tab-tv" data-section="television"> <a href="https://www.elmundo.es/television.html?intcmp=MENUHOM24801&amp;s_kw=television" data-menu-active="television">Tv</a>
+                        </li>
+                        <li class="tab tab-science" data-section="ciencia-y-salud"> <a href="https://www.elmundo.es/ciencia-y-salud.html?intcmp=MENUHOM24801$s_kw=ciencia-salud" data-menu-active="ciencia-y-salud">Ciencia y Salud</a>
+                        </li>
+                        <li class="tab tab-technology" data-section="tecnologia"> <a href="https://www.elmundo.es/tecnologia.html?intcmp=MENUHOM24801&amp;s_kw=tecnologia" data-menu-active="tecnologia">Tecnología</a>
+                        </li>
+                        <li class="tab tab-loc" data-section="loc"> <a href="https://www.elmundo.es/loc.html?intcmp=MENUHOM24801&amp;s_kw=loc" data-menu-active="loc">LOC</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <!--fin cabecera EM-->
+
+        <!--cabecera expansión-->
+        <div class="header-wrapper expansion">
+            <div class="header-logo">
+                <a href="http://www.expansion.com" title="Expansión">
+                    <span class="hidden-content">Expansión</span>
+                </a>
+            </div>
+            <ul class="header-links">
+                <li><a href="http://www.expansion.com/mercados.html?intcmp=MENUHOM24101&amp;s_kw=mercados" title="Mercados">Mercados</a></li>
+                <li><a href="http://www.expansion.com/ahorro.html?intcmp=MENUHOM24101&amp;s_kw=ahorro" title="Ahorro">Ahorro</a></li>
+                <li><a href="http://www.expansion.com/empresas.html?intcmp=MENUHOM24101&amp;s_kw=empresas" title="Empresas" class="active">Empresas</a></li>
+                <li><a href="http://www.expansion.com/economia.html?intcmp=MENUHOM24101&amp;s_kw=economia" title="Economia">Economía</a></li>
+                <li><a href="http://www.expansion.com/emprendedores-empleo.html?intcmp=MENUHOM24101&amp;s_kw=empr-em" title="Emprendedores">E&amp;Empleo</a></li>
+                <li><a href="http://www.expansion.com/juridico.html?intcmp=MENUHOM24101&amp;s_kw=juridico" title="juridico">Jurídico</a></li>
+            </ul>
+            <nav class="menu-hidden"><span></span> <span></span> <span></span></nav>
+            <aside class="header-subscribe">
+                <ul>
+                    <li><a href="https://seguro.elmundo.es/compras/quiosco" title="Suscripciones El Mundo">Suscríbete</a></li>
+                </ul>
+            </aside>
+        </div>
+        <!--fin cabecera expansión-->
+
+        <div class="barra-menu">
+            <div class="header-container text-center">
+                <!-- Barra adicional menu -->
+                <!-- <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div> -->
+                <div class="barra__logo">
+                    <a href="/" class="expansion">
+                        <img src="/assets/img/expansion-mini.svg" alt="Expansion" width="100">
+                    </a>
+                    <a href="/" class="santander">
+                        <img src="/assets/img/logo.svg" alt="Santander" width="100" style="min-width:100px">
+                    </a>
+                    <a href="/" class="claim">
+                       <span class="name">Conversaciones inspiradoras entre mujeres directivas y emprendedoras</span>   
+                    </a>
+                </div>
+                <div class="barra__texto text-center">
+					<div class="texto__encabezado--logo">
+						<a href="https://www.bancosantander.es/es/empresas" target="_blank" rel="nofollow noopener" onclick="envioSC('SANTANDER2019Santander');gtag('event', 'link', {'event_category': 'Santander'});">
+							<img src="/assets/img/logo-cliente.png" alt="Santander">
+						</a>
+					</div>
+                    <?php $view['slots']->output('social') ?>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="container">
+        <?php $view['slots']->output('_content') ?>
+
+        <footer class="footer">
+            <div class="footer-wrapper">
+                <div class="footer-bg">
+                    <div class="content">
+                        <div class="go--up_arrow ">
+                            <a href="#section1">
+                                <span class="icon-arrow-up"></span>
+                            </a>
+                        </div>
+                        <div class="footer--logo">
+                            <!-- <img src="/img/logo.png" alt="Derecho de Empresa"> -->
+                        </div>
+                        <div class="footer--text">
+                            Un proyecto de <a href="http://uestudio.es/" target="_blank" rel="nofollow noopener" onclick="envioSC('SANTANDER2019UEStudio');gtag('event', 'link', {'event_category': 'UEStudio'});"><strong>UE Studio</strong></a> para
+                            <a href="https://www.bancosantander.es/es/empresas" target="_blank" rel="nofollow noopener" onclick="envioSC('SANTANDER2019Santander');gtag('event', 'link', {'event_category': 'Santander'});">
+                                <strong>Santander</strong>
+                            </a>
+                        </div>
+                        <div class="footer__info">© 2018 Unidad Editorial Información General, S.L.U | <a class="js-uecookiespolicy-preferences-show" href="http://cookies.unidadeditorial.es/" style="color:#9a9da5">Politica de cookies</a></div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <div class="menu">
+            <div class="menu-nav">
+                <div class="hamburger close">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <ul>
+                    <li><a href="/burocracia">Burocracia</a></li>
+                    <li><a href="/bajas-laborales">Bajas laborales</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="progress">
+        <div class="progress-bar"></div>
+    </div>
+    <!-- SCRIPTS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script type="text/javascript" language="javascript" src="https://e00-ue.uecdn.es/cookies/js/policy_v3_utf8.js"></script>
+    <script type="text/javascript" src="https://sdk.privacy-center.org/loader.js" data-key="03f1af55-a479-4c1f-891a-7481345171ce" id="spcloader" async></script>
+    <script type="text/javascript" language="javascript" src="https://e00-ue.uecdn.es/cookies/js/gdpr_dfp.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-scrolldepth/0.6/jquery.scrolldepth.min.js"></script>
+    <script src="http://e00-elmundo.uecdn.es/promociones/native/2018/06/09b/js/swiper.min.js"></script>
+
+    <script src="/assets/js/bundle.min.js"></script>
+
+    <?php $view['slots']->output('scripts') ?>
+
+    <script>
+        TMSBottom();
+
+        var _sf_async_config = _sf_async_config || {};
+        /** CONFIGURATION START **/
+        _sf_async_config.uid = 52682;
+        _sf_async_config.domain = '<?php echo $view->escape($domain) ?>';
+        _sf_async_config.useCanonical = true;
+        _sf_async_config.sections = 'UEstudio';
+        _sf_async_config.authors = '<?php echo $view->escape($GLOBALS['config']['web_name']) ?>';
+        /** CONFIGURATION END **/
+        (function() {
+            function loadChartbeat() {
+                window._sf_endpt = (new Date()).getTime();
+                var e = document.createElement('script');
+                e.setAttribute('language', 'javascript');
+                e.setAttribute('type', 'text/javascript');
+                e.setAttribute('src', '//static.chartbeat.com/js/chartbeat.js');
+                document.body.appendChild(e);
+            }
+            var oldonload = window.onload;
+            window.onload = (typeof window.onload != 'function') ?
+                loadChartbeat : function() {
+                    ``
+                    oldonload();
+                    loadChartbeat();
+                };
+        })();
+    </script>
+</body>
+
+</html> 

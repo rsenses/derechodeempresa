@@ -1,0 +1,159 @@
+<?php $view->extend('layout.phtml') ?>
+<?php $view['slots']->set('title', strip_tags($content->title_txt)) ?>
+<?php $view['slots']->set('description', $content->description) ?>
+<?php $view['slots']->set('facebook', $content->facebook) ?>
+<?php $view['slots']->set('socialImage', $GLOBALS['config']['cdn_url'] . '/images/' . $content->image) ?>
+<?php $view['slots']->set('section', 'article') ?>
+
+<?php $view['slots']->start('trust') ?>
+    <meta property="article:modified_time" content="<?php echo str_replace('+00:00', 'Z', gmdate('c', strtotime($content->updated_at))) ?>"/>
+    <meta property="article:published_time" content="<?php echo str_replace('+00:00', 'Z', gmdate('c', strtotime($content->date))) ?>"/>
+
+    <script type="application/ld+json">
+        [{
+            "@context": "http://schema.org",
+            "@type": "AdvertiserContentArticle",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "<?php echo 'https://' . $_SERVER['HTTP_HOST'] . $uri ?>"
+            },
+            "headline": "<?php echo $view->escape($content->title_txt) ?>",
+            "articleSection": "Native",
+            "image":[{
+                    "@type": "ImageObject",
+                    "url": "<?php echo $view->escape($GLOBALS['config']['cdn_url'] . '/images/' . $content->image) ?>",
+                    "height": 1393,
+                    "width": 877
+                }],
+            "datePublished": "<?php echo str_replace('+00:00', 'Z', gmdate('c', strtotime($content->date))) ?>",
+            "dateModified": "<?php echo str_replace('+00:00', 'Z', gmdate('c', strtotime($content->updated_at))) ?>",
+            "author": [{
+                    "@type": "<?php echo $view->escape($content->author_name) ?>",
+                    "name": "UE Studio"
+                }],
+            "publisher": {
+                "@type": "Organization",
+                "name": "<?php echo $view->escape($domain) ?>",
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": "<?php echo $view->escape($logo) ?>",
+                    "width": <?php echo $view->escape($logo_width) ?>,
+                    "height": <?php echo $view->escape($logo_height) ?>
+                }
+            },
+            "description": "<?php echo $view->escape($content->description) ?>"
+        }]
+    </script>
+<?php $view['slots']->stop() ?>
+
+<?php $view['slots']->start('styles') ?>
+<link rel="stylesheet" href="/css/swiper.min.css">
+
+<?php if (isset($content->options['styles']) && $content->options['styles']) : ?>
+<?php echo str_replace('/uploads', $GLOBALS['config']['cdn_url'], stripslashes($content->options['styles'])) ?>
+<?php endif ?>
+<?php $view['slots']->stop() ?>
+
+<?php $view['slots']->start('social') ?>
+    <ul class="social-list">
+        <li>
+            <a href="http://www.facebook.com/sharer.php?u=<?php echo $view->escape('http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] . '?cid=SMBOSO22801&s_kw=BC-facebook', 'url') ?>" target="_blank" rel="nofollow" onclick="gtag('event', 'Social', {'event_category': 'Facebook'});envioEventoRedSocial('facebook');" title="Compártelo en Facebook" class="icon-facebook" itemprop="sameAs">
+            </a>
+        </li>
+        <li>
+            <a href="https://twitter.com/intent/tweet?url=<?php echo $view->escape('http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] . '?cid=SMBOSO22801&s_kw=BC-twitter', 'url') ?>&amp;text=<?php echo $view->escape($content->twitter, 'url') ?>" target="_blank" rel="nofollow" onclick="gtag('event', 'Social', {'event_category': 'Twitter'});envioEventoRedSocial('twitter');" title="Compártelo en Twitter" itemprop="sameAs" class="icon-twitter">
+            </a>
+        </li>
+        <li title="Whatsapp" class="whatsapp">
+            <a href="whatsapp://send?text=<?php echo $view->escape($content->title, 'url') ?>%20<?php echo $view->escape('http://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] . '?cid=SMBOSO22801&s_kw=BC-whatsapp', 'url') ?>" target="_blank" rel="nofollow" onclick="gtag('event', 'Social', {'event_category': 'Whatsapp'});envioEventoRedSocial('whatsapp');" title="Compártelo en Facebook" class="icon-whatsapp" itemprop="sameAs">
+            </a>
+        </li>
+    </ul>
+<?php $view['slots']->stop() ?>
+
+<div class="ue-l-cover-grid__inner">
+    <article>
+        <section class="cabecera">
+            <div class="cabecera-cont">
+                <div class="ante">
+                    <span class="atribucion"><?php echo $view->escape($content->tags[0]->name) ?></span>
+                </div>
+                <h1><?php echo $view->escape($content->title) ?></h1>
+                <?php if ($content->vimeo) : ?>
+                    <div class="videoWrapper">
+                        <?php if (strlen($content->vimeo) == 11 && !is_numeric($content->vimeo)) : ?>
+                            <iframe width="100%" height="500" src="https://www.youtube.com/embed/<?php echo $view->escape($content->vimeo, 'path') ?>?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+                        <?php else : ?>
+                            <iframe src="https://player.vimeo.com/video/<?php echo $view->escape($content->vimeo, 'path') ?>" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                        <?php endif ?>
+                    </div>
+                <?php else : ?>
+                    <div class="img-principal">
+                        <img src="<?php echo $GLOBALS['config']['cdn_url'] ?>/images/<?php echo $view->escape($content->image, 'path') ?>" alt="<?php echo $view->escape($content->title_txt) ?>">
+                    </div>
+                <?php endif ?>
+                <!-- <span class="description">Madrid, 11 de diciembre de 2018. El presidente de Vox, Santiago Abascal</span> -->
+            </div>
+        </section>
+        <!-- <aside>
+            <div class="aside-cont">
+                <div class="autor">
+                    <p><?php echo $view->escape($content->author_name) ?></p>
+                    <span class="city">Madrid</span>
+                </div>
+                <div class="fecha"><?php echo $view->escape($content->date_formated) ?></div>
+                <div class="rrss">
+                    <?php $view['slots']->output('social') ?>
+                </div>
+            </div>
+        </aside> -->
+        <section class="cuerpo">
+            <div class="cuerpo-cont">
+                <?php echo $content->content ?>
+            </div>
+        </section>
+    </article>
+
+    <!-- noticias relacionadas -->
+    <div class="noticias-relacionadas">
+        <?php if ($videos != null) : ?>
+            <h5>Noticias relacionadas</h5>
+        <?php endif ?>
+        <?php foreach ($videos as $video) : ?>
+            <div class="noticia-relacionada">
+                <!-- <div class="videoWrapper" style="padding-bottom:54.25%">
+                    <iframe src="https://www.youtube.com/embed/<?php echo $view->escape($video->vimeo, 'path') ?>?rel=0&amp;showinfo=0" width="100%" height="100%" frameborder="0" allowfullscreen=""></iframe>
+                </div> -->
+                <div class="img-principal">
+                    <a href="<?php echo $view->escape($video->url, 'path') ?>">
+                        <img src="<?php echo $GLOBALS['config']['cdn_url'] ?>/images/<?php echo $view->escape($video->image, 'path') ?>" alt="<?php echo $view->escape($video->title_txt) ?>">
+                    </a>
+                </div>
+                <a href="<?php echo $view->escape($video->url, 'path') ?>">
+                    <h4 style="border-bottom:none;"><?php echo $view->escape($video->title_txt) ?></h4>
+                </a>
+            </div>
+        <?php endforeach ?>
+    </div>
+    <!-- ./ noticias relacionadas -->
+</div>
+
+<?php $view['slots']->start('scripts') ?>
+<script type="text/javascript">
+    var axel = Math.random() + "";
+    var a = axel * 10000000000000;
+    document.write('<iframe src="https://3533819.fls.doubleclick.net/activityi;src=3533819;type=bs0001;cat=cnt_p0;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=;npa=;ord=' + a + '?" width="1" height="1" frameborder="0" style="display:none"></iframe>');
+</script>
+<noscript>
+    <iframe src="https://3533819.fls.doubleclick.net/activityi;src=3533819;type=bs0001;cat=cnt_p0;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;tfua=;npa=;ord=1?" width="1" height="1" frameborder="0" style="display:none"></iframe>
+</noscript>
+
+<div class="OUTBRAIN" data-src="http://<?php echo $view->escape($_SERVER['HTTP_HOST']) ?><?php echo $view->escape($uri) ?>" data-widget-id="TR_1" data-ob-template="<?php echo $domain === 'marca.com' ? 'ES_Marca' : ($domain === 'expansion.com' ? 'expansion' : 'elmundo') ?>"></div>
+<script async="async" src="http://widgets.outbrain.com/outbrain.js"></script>
+
+<script src="https://player.vimeo.com/api/player.js"></script>
+
+<?php if (isset($content->options['scripts']) && $content->options['scripts']) : ?>
+<?php echo str_replace('/uploads', $GLOBALS['config']['cdn_url'], stripslashes($content->options['scripts'])) ?>
+<?php endif ?>
+<?php $view['slots']->stop() ?> 
