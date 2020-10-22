@@ -459,7 +459,6 @@ body.elmundo .barra-menu {
 
 .barra__logo img {
     width: auto;
-    mix-blend-mode: multiply;
 }
 
 .barra__logo span {

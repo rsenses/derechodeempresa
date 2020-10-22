@@ -59,7 +59,7 @@ body.expansion {
     position: absolute;
 }
 
-.expansion .barra__logo:before {
+/* .expansion .barra__logo:before {
     content: '';
     position: absolute;
     top: 0;
@@ -67,7 +67,7 @@ body.expansion {
     height: 100%;
     width: 30px;
     z-index: 9;
-}
+} */
 
 .expansion .barra__logo .claim {
     display: inline-block;
@@ -103,14 +103,12 @@ body.expansion {
 
 .expansion .barra__logo img {
     width: 100%;
-    width: 100px;
     height: 31px;
     vertical-align: middle;
 }
 
 .expansion .barra__logo a {
     display: inline-block;
-    max-width: 100px;
     margin-right: 0px;
 }
 
