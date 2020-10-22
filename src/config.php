@@ -4,7 +4,7 @@
 $GLOBALS['config'] = [
     'owner_name' => 'UEStudio',
     'web_name' => 'Derecho de Empresa',
-    'web_slug' => 'hablemosdefuturo',
+    'web_slug' => 'derechodeempresa',
     'cdn_url' => 'https://uecluster.blob.core.windows.net',
     'locales' => [
         'es' => 'es_ES.UTF-8',
