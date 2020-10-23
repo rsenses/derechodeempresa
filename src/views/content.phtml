@@ -79,6 +79,9 @@
                     <span class="atribucion"><?php echo $view->escape($content->tags[0]->name) ?></span>
                 </div>
                 <h1><?php echo $view->escape($content->title) ?></h1>
+                <hr>
+                <span style="text-transform:uppercase;margin-right:10px"><?php echo $view->escape($content->author_name) ?></span> Madrid <strong style="color:#736e65;font-size:0.9em;text-transform:uppercase;margin-left:10px"><?php echo $view->escape($content->date_formated) ?></strong>
+                <hr style="margin-bottom:30px">
                 <?php if ($content->vimeo) : ?>
                     <div class="videoWrapper">
                         <?php if (strlen($content->vimeo) == 11 && !is_numeric($content->vimeo)) : ?>

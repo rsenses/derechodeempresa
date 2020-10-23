@@ -20,20 +20,34 @@ $app->route('*', function () use ($app) {
     return true;
 });
 
-// ==================================== Tags Routes ====================================
-// $app->route('GET /etiqueta/@slug:[a-z0-9-]+', function ($slug) use ($app) {
-//     $show = new App\Controllers\TagController($app);
-//     echo $show->indexAction($slug);
-// });
+// ==================================== Sections Routes ====================================
+$app->route('GET /legal', function () use ($app) {
+    // $index = new App\Controllers\CategoryController($app);
+    // echo $index->indexAction('legal');
+    $app->redirect('/laboral/claves-laborales-en-la-transformacion-digital-de-las-empresas', 302);
+});
+
+$app->route('GET /laboral', function () use ($app) {
+    // $index = new App\Controllers\CategoryController($app);
+    // echo $index->indexAction('laboral');
+    $app->redirect('/laboral/claves-laborales-en-la-transformacion-digital-de-las-empresas', 302);
+});
+
+$app->route('GET /fiscal-contable', function () use ($app) {
+    // $index = new App\Controllers\CategoryController($app);
+    // echo $index->indexAction('fiscal-contable');
+    $app->redirect('/laboral/claves-laborales-en-la-transformacion-digital-de-las-empresas', 302);
+});
 
 // ==================================== Content Routes ====================================
-$app->route('GET /@slug:[a-z0-9-]+', function ($slug) use ($app) {
+$app->route('GET /@category:[a-z0-9-]+/@slug:[a-z0-9-]+', function ($category, $slug) use ($app) {
     $show = new App\Controllers\PostController($app);
-    echo $show->showAction($slug);
+    echo $show->showAction($category, $slug);
 });
 
 // ==================================== Home Route ====================================
 $app->route('GET /', function () use ($app) {
-    $index = new App\Controllers\HomeController($app);
-    echo $index->indexAction();
+    // $index = new App\Controllers\HomeController($app);
+    // echo $index->indexAction();
+    $app->redirect('/laboral/claves-laborales-en-la-transformacion-digital-de-las-empresas', 302);
 });

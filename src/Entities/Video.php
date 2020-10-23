@@ -13,7 +13,7 @@ class Video
     public $db;
     public $fiesta = false;
     public $options;
-    public $tags;
+    public $category;
     public $url;
 
     public function __construct(MyPDO $db)
@@ -27,11 +27,12 @@ class Video
         $this->date_formated = $this->getDateTimeFromFormat('Y-m-d H:i:s');
         $this->date_zulu = $this->getDateTimeFromFormat('Y-m-d\TH:i:s\Z');
 
+        $this->category = $this->category();
         $this->tags = $this->tags();
 
         $this->options = $this->options();
 
-        $this->url = "/{$this->url}";
+        $this->url = empty($this->options['url']) ? "/{$this->category->slug}/{$this->url}" : $this->options['url'];
     }
 
     public function tags()
@@ -56,19 +57,24 @@ class Video
     private function getDateTimeFromFormat($format)
     {
         $dateTime = DateTime::createFromFormat('Y-m-d H:i:s', $this->date);
-        return $dateTime->format('d/m/Y');
+        setlocale(LC_TIME, 'es_ES'); //only necessary if the locale isn't already set
+        return strftime('%d %b. %Y', $dateTime->getTimestamp());
     }
 
-    public static function fetch(MyPDO $db, string $slug)
+    public static function fetch(MyPDO $db, string $slug, string $category)
     {
         $stmt = $db->run('
             SELECT v.id, v.title, v.subtitle, v.content, v.url, v.image, v.vimeo, v.twitter, v.facebook, v.description, v.date, v.updated_at, v.options, v.visits, a.name AS author_name, a.image AS author_image, a.link AS author_link, a.twitter AS author_twitter, a.position AS author_position
             FROM videos AS v
+                JOIN section AS s ON v.id = s.content_id
+                JOIN tags AS t ON t.id = s.tag_id
                 LEFT JOIN author AS a ON v.author_id = a.author_id
             WHERE v.section = :section
+            AND t.url = :category
             AND v.url = :slug
         ', [
             'section' => $GLOBALS['config']['web_slug'],
+            'category' => $category,
             'slug' => $slug
         ]);
 
@@ -94,14 +100,17 @@ class Video
         return $stmt->fetchAll(PDO::FETCH_CLASS, 'App\Entities\Video', [$db]);
     }
 
-    public static function fetchRelated(MyPDO $db, int $id)
+    public static function fetchRelated(MyPDO $db, int $id, string $category)
     {
         try {
             $stmt = $db->run('
                 SELECT v.id, v.title, v.url, v.image, v.options, v.vertical, v.vimeo, v.date, a.name AS author_name
                 FROM videos AS v
+                    JOIN section AS s ON v.id = s.content_id
+                    JOIN tags AS t ON t.id = s.tag_id
                 	LEFT JOIN author AS a ON v.author_id = a.author_id
                 WHERE v.section = :section
+                    AND t.url = :category
                     AND v.id != :id
                     AND v.active = 1
                 GROUP BY v.id
@@ -109,6 +118,7 @@ class Video
                 LIMIT 3;
             ', [
                 'section' => $GLOBALS['config']['web_slug'],
+                'category' => $category,
                 'id' => $id,
             ]);
 

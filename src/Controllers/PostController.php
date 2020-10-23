@@ -6,9 +6,9 @@ use App\Entities\Video;
 
 class PostController extends BaseController
 {
-    public function showAction(string $slug)
+    public function showAction(string $category, string $slug)
     {
-        $content = Video::fetch($this->db, $slug);
+        $content = Video::fetch($this->db, $slug, $category);
 
         // If no content, Error 404
         if (!$content) {
@@ -17,7 +17,7 @@ class PostController extends BaseController
 
         $content->updateVisitsCounter();
 
-        $videos = Video::fetchRelated($this->db, $content->id);
+        $videos = Video::fetchRelated($this->db, $content->id, $category);
 
         $this->httpCache($content);
 
