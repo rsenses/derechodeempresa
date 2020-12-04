@@ -17,6 +17,8 @@ class CategoryController extends BaseController
             return $this->app->notFound();
         }
 
+        // die(var_dump($this->videos[0]->category->slug));
+
         $this->httpCache($this->videos);
 
         if (count($this->videos) > 2) {

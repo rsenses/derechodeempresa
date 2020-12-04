@@ -22,21 +22,18 @@ $app->route('*', function () use ($app) {
 
 // ==================================== Sections Routes ====================================
 $app->route('GET /legal', function () use ($app) {
-    // $index = new App\Controllers\CategoryController($app);
-    // echo $index->indexAction('legal');
-    $app->redirect('/laboral/claves-laborales-en-la-transformacion-digital-de-las-empresas', 302);
+    $index = new App\Controllers\CategoryController($app);
+    echo $index->indexAction('legal');
 });
 
 $app->route('GET /laboral', function () use ($app) {
-    // $index = new App\Controllers\CategoryController($app);
-    // echo $index->indexAction('laboral');
-    $app->redirect('/laboral/claves-laborales-en-la-transformacion-digital-de-las-empresas', 302);
+    $index = new App\Controllers\CategoryController($app);
+    echo $index->indexAction('laboral');
 });
 
 $app->route('GET /fiscal-contable', function () use ($app) {
-    // $index = new App\Controllers\CategoryController($app);
-    // echo $index->indexAction('fiscal-contable');
-    $app->redirect('/laboral/claves-laborales-en-la-transformacion-digital-de-las-empresas', 302);
+    $index = new App\Controllers\CategoryController($app);
+    echo $index->indexAction('fiscal-contable');
 });
 
 // ==================================== Content Routes ====================================
@@ -47,7 +44,6 @@ $app->route('GET /@category:[a-z0-9-]+/@slug:[a-z0-9-]+', function ($category, $
 
 // ==================================== Home Route ====================================
 $app->route('GET /', function () use ($app) {
-    // $index = new App\Controllers\HomeController($app);
-    // echo $index->indexAction();
-    $app->redirect('/laboral/claves-laborales-en-la-transformacion-digital-de-las-empresas', 302);
+    $index = new App\Controllers\HomeController($app);
+    echo $index->indexAction();
 });

@@ -10,9 +10,11 @@ $GLOBALS['config'] = [
         'es' => 'es_ES.UTF-8',
     ],
     'rrss' => [
-        'home' => [
-            'facebook' => '28 mujeres, directivas y emprendedoras, debaten sobre varios temas de actualidad en una serie de inspiradoras conversaciones. #derechodeempresa #TheRightWay',
-            'twitter' => '28 mujeres, directivas y emprendedoras, debaten sobre varios temas de actualidad en una serie de inspiradoras conversaciones. #derechodeempresa #TheRightWay'
+        'home' => 'LABE abogados te acerca toda la actualidad económica y fiscal del momento',
+        'category' => [
+            'legal' => 'LABE abogados te acerca toda la actualidad económica y fiscal del momento',
+            'laboral' => 'LABE abogados te acerca toda la actualidad económica y fiscal del momento',
+            'fiscal-contable' => 'LABE abogados te acerca toda la actualidad económica y fiscal del momento'
         ]
     ]
 ];

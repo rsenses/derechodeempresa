@@ -10,19 +10,19 @@
 
     <!-- Place this data between the <head> tags of your website -->
     <title><?php $view['slots']->output('title', $GLOBALS['config']['web_name']) ?> | El Mundo, Marca</title>
-    <meta name="description" content="<?php $view['slots']->output('description', $GLOBALS['config']['rrss']['home']['facebook']) ?>">
+    <meta name="description" content="<?php $view['slots']->output('description', $GLOBALS['config']['rrss']['home']) ?>">
     <meta name="author" content="<?php echo $GLOBALS['config']['owner_name'] ?>">
 
     <!-- Schema.org markup (Google) -->
     <meta itemprop="name" content="<?php $view['slots']->output('title', $GLOBALS['config']['web_name']) ?>">
-    <meta itemprop="description" content="<?php $view['slots']->output('description', $GLOBALS['config']['rrss']['home']['facebook']) ?>">
+    <meta itemprop="description" content="<?php $view['slots']->output('description', $GLOBALS['config']['rrss']['home']) ?>">
     <meta itemprop="image" content="<?php $view['slots']->output('socialImage', 'http://derechodeempresa.expansion.com/assets/img/rrss.jpg') ?>">
 
     <!-- Twitter Card markup-->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@uestudio_es">
     <meta name="twitter:title" content="<?php $view['slots']->output('title', $GLOBALS['config']['web_name']) ?>">
-    <meta name="twitter:description" content="<?php $view['slots']->output('facebook', $GLOBALS['config']['rrss']['home']['facebook']) ?>">
+    <meta name="twitter:description" content="<?php $view['slots']->output('facebook', $GLOBALS['config']['rrss']['home']) ?>">
     <meta name="twitter:creator" content="@uestudio_es">
     <!-- Twitter summary card with large image must be at least 280x150px -->
     <meta name="twitter:image" content="<?php $view['slots']->output('socialImage', 'http://derechodeempresa.expansion.com/assets/img/rrss.jpg') ?>">
@@ -33,7 +33,7 @@
     <meta property="og:type" content="article" />
     <meta property="og:url" content="<?php echo 'https://' . $_SERVER['HTTP_HOST'] . $uri ?>" />
     <meta property="og:image" content="<?php $view['slots']->output('socialImage', 'http://derechodeempresa.expansion.com/assets/img/rrss.jpg') ?>" />
-    <meta property="og:description" content="<?php $view['slots']->output('facebook', $GLOBALS['config']['rrss']['home']['facebook']) ?>" />
+    <meta property="og:description" content="<?php $view['slots']->output('facebook', $GLOBALS['config']['rrss']['home']) ?>" />
     <meta property="og:site_name" content="<?php echo $GLOBALS['config']['web_name'] ?>" />
 
     <link rel="canonical" href="<?php echo 'https://' . $_SERVER['HTTP_HOST'] . $uri ?>">
